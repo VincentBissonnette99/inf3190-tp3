@@ -41,35 +41,44 @@
 								<form method="post" action="animal.html">
 									<div class="row gtr-uniform">
 										<div class="col-6 col-12-xsmall">
-											<input type="text" name="demo-name" id="demo-name" value="" placeholder="Nom" required/>
+											<input type="text" name="nom" id="nom" value="" placeholder="Nom" required onchange="nom()"/>
+											<p class="erreur" id="erreur-nom">Veillez entrer un nom valide entre 3 et 20 caractères.</p>
 										</div>
 										<div class="col-6 col-12-xsmall">
-											<input type="text" name="demo-email" id="demo-email" value="" placeholder="Espèce" required/>
+											<input type="text" name="espece" id="espece" value="" placeholder="Espèce" required onchange="espece()"/>
+											<p class="erreur" id="erreur-espece">Veillez entrer une espèce valide.</p>
 										</div>
 										<div class="col-6 col-12-xsmall">
-											<input type="text" name="demo-email" id="demo-email" value="" placeholder="Race" required/>
+											<input type="text" name="race" id="race" value="" placeholder="Race" required onchange="race()"/>
+											<p class="erreur" id="erreur-race">Veillez entrer une race valide.</p>
 										</div>
 										<div class="col-6 col-12-xsmall">
-											<input type="text" name="demo-email" id="demo-email" value="" placeholder="Âge" required/>
+											<input type="text" name="age" id="age" value="" placeholder="Âge" required onchange="age()"/>
+											<p class="erreur" id="erreur-age">Veillez entrer un âge entre 0 et 30 ans.</p>
 										</div>
 										<div class="col-12">
-											<textarea name="demo-message" id="demo-message" placeholder="Description de l'animal" rows="6" required></textarea>
+											<textarea name="description" id="descritpion" placeholder="Description de l'animal" rows="6" required onchange="description()"></textarea>
+											<p class="erreur" id="erreur-description">Veillez entrer une description valide.</p>
 										</div>
 										<div class="col-12">
-											<input type="email" name="demo-email" id="demo-email" value="" placeholder="Adresse courriel" required/>
+											<input type="email" name="courriel" id="courriel" value="" placeholder="Adresse courriel" required/>
+											<p class="erreur" id="erreur-courriel">Veillez entrer une adresse courriel valide.</p>
 										</div>
 										<div class="col-12">
-											<input type="text" name="demo-email" id="demo-email" value="" placeholder="Adresse civique" required/>
+											<input type="text" name="adresse" id="adresse" value="" placeholder="Adresse civique" required onchange="adresse()"/>
+											<p class="erreur" id="erreur-adresse">Veillez entrer une adresse valide.</p>
 										</div>
 										<div class="col-6 col-12-xsmall">
-											<input type="text" name="demo-email" id="demo-email" value="" placeholder="Ville" required/>
+											<input type="text" name="ville" id="ville" value="" placeholder="Ville" required onchange="ville()"/>
+											<p class="erreur" id="erreur-ville">Veillez entrer un nom de ville valide.</p>
 										</div>
 										<div class="col-6 col-12-xsmall">
-											<input type="text" name="demo-email" id="demo-email" value="" placeholder="Code Postal" required/>
+											<input type="text" name="cp" id="cp" value="" placeholder="Code Postal" required onchange="cp()"/>
+											<p class="erreur" id="erreur-cp">Veillez entrer un code postal canadien valide.</p>
 										</div>
 										<div class="col-12">
 											<ul class="actions">
-												<li><input type="submit" value="Envoyer" class="primary" /></li>
+												<li><input type="submit" value="Envoyer" id="bouton" class="primary" /></li>
 												<li><input type="reset" value="Réinitialiser" /></li>
 											</ul>
 										</div>
@@ -120,6 +129,7 @@
 			</div>
 
 		<!-- Scripts -->
+			<script src="script.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
