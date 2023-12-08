@@ -5,150 +5,115 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Accueil</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<head>
+    <title>Accueil</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+</head>
+<body class="is-preload">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+<!-- Wrapper -->
+<div id="wrapper">
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
-								</header>
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Accueil</h1>
-										</header>
-										<p>Bienvenue au Centre d'adoption de Bellerive, où les queues frétillantes
-											 et les ronronnements vous accueillent dans un monde dédié à l'amour des animaux.
-											  Notre passion consiste à créer des liens durables entre nos adorables pensionnaires 
-											  et les familles aimantes. Explorez nos profils d'animaux en quête d'un foyer chaleureux 
-											  ou confiez nous votre animal et découvrez comment chaque adoption ici devient une histoire 
-											  de bonheur partagé.</p>
-									</div>
-									<span class="image object">
-										<img src="images/logo.png" alt="logo" />
-									</span>
-								</section>
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ url_for('index') }}" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
+            </header>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Animaux en vedette</h2>
-									</header>
-									<div class="posts">
-										<article>
-											<h3>Nom animal</h3>
-											<h5>Espèce</h5>
-											<p>Description</p>
-											<ul class="actions">
-												<li><a href="animal.html" class="button">En savoir plus</a></li>
-											</ul>
-										</article>
-										<article>
-											<h3>Nom animal</h3>
-											<h5>Espèce</h5>
-											<p>Description</p>
-											<ul class="actions">
-												<li><a href="animal.html" class="button">En savoir plus</a></li>
-											</ul>
-										</article>
-										<article>
-											<h3>Nom animal</h3>
-											<h5>Espèce</h5>
-											<p>Description</p>
-											<ul class="actions">
-												<li><a href="animal.html" class="button">En savoir plus</a></li>
-											</ul>
-										</article>
-										<article>
-											<h3>Nom animal</h3>
-											<h5>Espèce</h5>
-											<p>Description</p>
-											<ul class="actions">
-												<li><a href="animal.html" class="button">En savoir plus</a></li>
-											</ul>
-										</article>
-										<article>
-											<h3>Nom animal</h3>
-											<h5>Espèce</h5>
-											<p>Description</p>
-											<ul class="actions">
-												<li><a href="animal.html" class="button">En savoir plus</a></li>
-											</ul>
-										</article>
-										<article>
-											<h3>Nom animal</h3>
-											<h5>Espèce</h5>
-											<p>Description</p>
-											<ul class="actions">
-												<li><a href="animal.html" class="button">En savoir plus</a></li>
-											</ul>
-										</article>
-									</div>
-								</section>
+            <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <header>
+                        <h1>Accueil</h1>
+                    </header>
+                    <p>Bienvenue au Centre d'adoption de Bellerive, où les queues frétillantes
+                        et les ronronnements vous accueillent dans un monde dédié à l'amour des animaux.
+                        Notre passion consiste à créer des liens durables entre nos adorables pensionnaires
+                        et les familles aimantes. Explorez nos profils d'animaux en quête d'un foyer chaleureux
+                        ou confiez nous votre animal et découvrez comment chaque adoption ici devient une histoire
+                        de bonheur partagé.</p>
+                </div>
+                <span class="image object">
+				    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"/>
+				</span>
+            </section>
 
-						</div>
-					</div>
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Animaux en vedette</h2>
+                </header>
+                <div class="posts">
+                    {% for animal in animaux_random %}
+                    <article>
+                        <h3>{{ animal.nom }}</h3>
+                        <h5>{{ animal.espece }}</h5>
+                        <p>{{ animal.description }}</p>
+                        <a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
+                            En savoir plus
+                        </a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+        </div>
+    </div>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="recherche.html">
-										<input type="text" name="query" id="query" placeholder="Recherche" />
-									</form>
-								</section>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Accueil</a></li>
-										<li><a href="form.html">Mise en adoption</a></li>
-									</ul>
-								</nav>
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form method="post" action="{{ url_for('recherche') }}">
+                    <input type="text" name="query" id="query" placeholder="Recherche"/>
+                </form>
+            </section>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Nous joindre</h2>
-									</header>
-									<ul class="contact">
-										<li class="icon solid fa-envelope">information@adoption.ca</li>
-										<li class="icon solid fa-phone">(514) 555-6284</li>
-										<li class="icon solid fa-home">1234 Rue Saint-Donat<br />
-										Montréal, QC H1L 5J6</li>
-									</ul>
-								</section>
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li><a href="{{ url_for('form') }}">Mise en adoption</a></li>
+                </ul>
+            </nav>
 
-						</div>
-					</div>
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Nous joindre</h2>
+                </header>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope">information@adoption.ca</li>
+                    <li class="icon solid fa-phone">(514) 555-6284</li>
+                    <li class="icon solid fa-home">1234 Rue Saint-Donat<br/>
+                        Montréal, QC H1L 5J6
+                    </li>
+                </ul>
+            </section>
 
-			</div>
+        </div>
+    </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/script.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-	</body>
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
 </html>

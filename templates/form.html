@@ -5,135 +5,146 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Mise en adoption</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src="script.js"></script>
-	</head>
-	<body class="is-preload">
+<head>
+    <title>Mise en adoption</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+</head>
+<body class="is-preload">
 
-							<!-- Header -->
-							<header id="header">
-								<a href="index.html" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
-							</header>
+<!-- Wrapper -->
+<div id="wrapper">
 
-							<!-- Banner -->
-							<section id="banner">
-								<div class="content">
-									<header>
-										<h1>Mise en adoption</h1>
-									</header>
-									<p>Votre décision de donner une chance à votre animal de trouver un foyer chaleureux
-										est un acte d'une bonté immense. Remplissez attentivement ce formulaire pour
-										nous aider à trouver le maître parfait.</p>
-								</div>
-							</section>
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
 
-							<div>
-								<form method="post" action="animal.html">
-									<div class="row gtr-uniform">
-										<div class="col-6 col-12-xsmall">
-											<input type="text" name="nom" id="nom" value="" placeholder="Nom" required onchange="nom()">
-											<p class="erreur" id="erreur-nom">Veillez entrer un nom valide entre 3 et 20 caractères.</p>
-										</div>
-										<div class="col-6 col-12-xsmall">
-											<input type="text" name="espece" id="espece" value="" placeholder="Espèce" required onchange="espece()">
-											<p class="erreur" id="erreur-espece">Veillez entrer une espèce valide.</p>
-										</div>
-										<div class="col-6 col-12-xsmall">
-											<input type="text" name="race" id="race" value="" placeholder="Race" required onchange="race()">
-											<p class="erreur" id="erreur-race">Veillez entrer une race valide.</p>
-										</div>
-										<div class="col-6 col-12-xsmall">
-											<input type="text" name="age" id="age" value="" placeholder="Âge" required onchange="age()">
-											<p class="erreur" id="erreur-age">Veillez entrer un âge entre 0 et 30 ans.</p>
-										</div>
-										<div class="col-12">
-											<textarea name="description" id="descritpion" placeholder="Description de l'animal" rows="6" required onchange="description()"></textarea>
-											<p class="erreur" id="erreur-description">Veillez entrer une description valide.</p>
-										</div>
-										<div class="col-12">
-											<input type="email" name="courriel" id="courriel" value="" placeholder="Adresse courriel" required>
-											<p class="erreur" id="erreur-courriel">Veillez entrer une adresse courriel valide.</p>
-										</div>
-										<div class="col-12">
-											<input type="text" name="adresse" id="adresse" value="" placeholder="Adresse civique" required onchange="adresse()">
-											<p class="erreur" id="erreur-adresse">Veillez entrer une adresse valide.</p>
-										</div>
-										<div class="col-6 col-12-xsmall">
-											<input type="text" name="ville" id="ville" value="" placeholder="Ville" required onchange="ville()">
-											<p class="erreur" id="erreur-ville">Veillez entrer un nom de ville valide.</p>
-										</div>
-										<div class="col-6 col-12-xsmall">
-											<input type="text" name="cp" id="cp" value="" placeholder="Code Postal" required onchange="cp()">
-											<p class="erreur" id="erreur-cp">Veillez entrer un code postal canadien valide.</p>
-										</div>
-										<div class="col-12">
-											<ul class="actions">
-												<li><input type="submit" value="Envoyer" id="bouton" class="primary" /></li>
-												<li><input type="reset" value="Réinitialiser" /></li>
-											</ul>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ url_for('index') }}" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
+            </header>
 
-				<!-- Sidebar -->
-				<div id="sidebar">
-					<div class="inner">
+            <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <header>
+                        <h1>Mise en adoption</h1>
+                    </header>
+                    <p>Votre décision de donner une chance à votre animal de trouver un foyer chaleureux
+                        est un acte d'une bonté immense. Remplissez attentivement ce formulaire pour
+                        nous aider à trouver le maître parfait.</p>
+                </div>
+            </section>
 
-						<!-- Search -->
-							<section id="search" class="alt">
-								<form method="post" action="recherche.html">
-									<input type="text" name="query" id="query" placeholder="Recherche" />
-								</form>
-							</section>
+            <div>
+                <form method="post" action="{{ url_for('ajout_animal') }}">
+                    <div class="row gtr-uniform">
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="nom" id="nom" value="" placeholder="Nom" required onchange="nom()">
+                            <p class="erreur" id="erreur-nom">Veillez entrer un nom valide entre 3 et 20 caractères.</p>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="espece" id="espece" value="" placeholder="Espèce" required
+                                   onchange="espece()">
+                            <p class="erreur" id="erreur-espece">Veillez entrer une espèce valide.</p>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="race" id="race" value="" placeholder="Race" required
+                                   onchange="race()">
+                            <p class="erreur" id="erreur-race">Veillez entrer une race valide.</p>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="age" id="age" value="" placeholder="Âge" required onchange="age()">
+                            <p class="erreur" id="erreur-age">Veillez entrer un âge entre 0 et 30 ans.</p>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="description" id="descritpion" placeholder="Description de l'animal" rows="6"
+                                      required onchange="description()"></textarea>
+                            <p class="erreur" id="erreur-description">Veillez entrer une description valide.</p>
+                        </div>
+                        <div class="col-12">
+                            <input type="email" name="courriel" id="courriel" value="" placeholder="Adresse courriel"
+                                   required>
+                            <p class="erreur" id="erreur-courriel">Veillez entrer une adresse courriel valide.</p>
+                        </div>
+                        <div class="col-12">
+                            <input type="text" name="adresse" id="adresse" value="" placeholder="Adresse civique"
+                                   required onchange="adresse()">
+                            <p class="erreur" id="erreur-adresse">Veillez entrer une adresse valide.</p>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="ville" id="ville" value="" placeholder="Ville" required
+                                   onchange="ville()">
+                            <p class="erreur" id="erreur-ville">Veillez entrer un nom de ville valide.</p>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="cp" id="cp" value="" placeholder="Code Postal" required
+                                   onchange="cp()">
+                            <p class="erreur" id="erreur-cp">Veillez entrer un code postal canadien valide.</p>
+                        </div>
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" value="Envoyer" id="bouton" class="primary"/></li>
+                                <li><input type="reset" value="Réinitialiser"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-						<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menu</h2>
-								</header>
-								<ul>
-									<li><a href="index.html">Accueil</a></li>
-									<li><a href="form.html">Mise en adoption</a></li>
-								</ul>
-							</nav>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
 
-						<!-- Section -->
-							<section>
-								<header class="major">
-									<h2>Nous joindre</h2>
-								</header>
-								<ul class="contact">
-									<li class="icon solid fa-envelope">information@adoption.ca</li>
-									<li class="icon solid fa-phone">(514) 555-6284</li>
-									<li class="icon solid fa-home">1234 Rue Saint-Donat<br />
-									Montréal, QC H1L 5J6</li>
-								</ul>
-							</section>
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form method="post" action="{{ url_for('recherche') }}">
+                    <input type="text" name="query" id="query" placeholder="Recherche"/>
+                </form>
+            </section>
 
-					</div>
-				</div>
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li><a href="{{ url_for('form') }}">Mise en adoption</a></li>
+                </ul>
+            </nav>
 
-			</div>
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Nous joindre</h2>
+                </header>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope">information@adoption.ca</li>
+                    <li class="icon solid fa-phone">(514) 555-6284</li>
+                    <li class="icon solid fa-home">1234 Rue Saint-Donat<br/>
+                        Montréal, QC H1L 5J6
+                    </li>
+                </ul>
+            </section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-	</body>
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
 </html>

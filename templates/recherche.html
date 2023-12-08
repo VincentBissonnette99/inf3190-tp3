@@ -9,7 +9,9 @@
 		<title>Recherche</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}">
+		<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 	</head>
 	<body class="is-preload">
 
@@ -22,7 +24,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
+									<a href="{{ url_for('index') }}" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
 								</header>
 
 							<!-- Banner -->
@@ -49,7 +51,7 @@
 
 							<!-- Search -->
 								<section id="search" class="alt">
-									<form method="post" action="recherche.html">
+									<form method="post" action="{{ url_for('recherche') }}">
 										<input type="text" name="query" id="query" placeholder="Recherche" />
 									</form>
 								</section>
@@ -60,8 +62,8 @@
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Accueil</a></li>
-										<li><a href="form.html">Mise en adoption</a></li>
+										<li><a href="{{ url_for('index') }}">Accueil</a></li>
+										<li><a href="{{ url_for('form') }}">Mise en adoption</a></li>
 									</ul>
 								</nav>
 
@@ -84,11 +86,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/script.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
 	</body>
 </html>

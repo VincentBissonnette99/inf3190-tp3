@@ -5,94 +5,97 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Animal</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<head>
+    <title>Animal</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+</head>
+<body class="is-preload">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+<!-- Wrapper -->
+<div id="wrapper">
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
-								</header>
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h2>Nom animal</h2>
-										</header>
-										<ul>
-                                            <li>Espèce</li>
-                                            <li>Race</li>
-                                            <li>Âge</li>
-                                            <li>Description</li>
-                                            <li>Adresse civique</li>
-                                            <li>Ville</li>
-                                            <li>Code postal</li>
-                                        </ul>
-                                        <a class="icon solid fa-envelope" href="mailto:courriel@gmail.com"> Rejoindre le propriétaire</a>
-									</div>
-								</section>
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ url_for('index') }}" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
+            </header>
 
-						</div>
-					</div>
+            <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <header>
+                        <h2>{{animal.nom}}</h2>
+                    </header>
+                    <ul>
+                        <li>Espèce: {{animal.espece}}</li>
+                        <li>Race: {{animal.race}}</li>
+                        <li>Âge: {{animal.age}}</li>
+                        <li>Description: {{animal.description}}</li>
+                        <li>Adresse: {{animal.adresse}}</li>
+                        <li>Ville: {{animal.ville}}</li>
+                        <li>Code postal: {{animal.cp}}</li>
+                    </ul>
+                    <a class="icon solid fa-envelope" href="mailto:{{animal.courriel}}"> Rejoindre le propriétaire</a>
+                </div>
+            </section>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+        </div>
+    </div>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="recherche.html">
-										<input type="text" name="query" id="query" placeholder="Recherche" />
-									</form>
-								</section>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Accueil</a></li>
-										<li><a href="form.html">Mise en adoption</a></li>
-									</ul>
-								</nav>
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form method="post" action="{{ url_for('recherche') }}">
+                    <input type="text" name="query" id="query" placeholder="Recherche"/>
+                </form>
+            </section>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Nous joindre</h2>
-									</header>
-									<ul class="contact">
-										<li class="icon solid fa-envelope">information@adoption.ca</li>
-										<li class="icon solid fa-phone">(514) 555-6284</li>
-										<li class="icon solid fa-home">1234 Rue Saint-Donat<br />
-										Montréal, QC H1L 5J6</li>
-									</ul>
-								</section>
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li><a href="{{ url_for('form') }}">Mise en adoption</a></li>
+                </ul>
+            </nav>
 
-						</div>
-					</div>
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Nous joindre</h2>
+                </header>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope">information@adoption.ca</li>
+                    <li class="icon solid fa-phone">(514) 555-6284</li>
+                    <li class="icon solid fa-home">1234 Rue Saint-Donat<br/>
+                        Montréal, QC H1L 5J6
+                    </li>
+                </ul>
+            </section>
 
-			</div>
+        </div>
+    </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/script.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-	</body>
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
 </html>
