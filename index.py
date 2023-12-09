@@ -37,7 +37,7 @@ def close_connection(exception):
 def index():
     db = get_db()
     animaux = db.get_animaux()
-    animaux_random = random.sample(animaux, k=5)
+    animaux_random = random.sample(animaux, k=6)
     return render_template('index.html', animaux_random=animaux_random)
 
 
