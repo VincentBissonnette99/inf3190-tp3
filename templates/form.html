@@ -41,7 +41,7 @@
             </section>
 
             <div>
-                <form method="post" action="{{ url_for('ajout_animal') }}">
+                <form id="formulaire" method="post" action="{{ url_for('ajout_animal') }}">
                     <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                             <input type="text" name="nom" id="nom" value="" placeholder="Nom" required oninput="verifNom()">
@@ -78,18 +78,18 @@
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <input type="text" name="ville" id="ville" value="" placeholder="Ville" required
-                            onchange="verifVille()">
+                            oninput="verifVille()">
                             <p class="erreur" id="erreur-ville">Veillez entrer un nom de ville valide.</p>
                         </div>
                         <div class="col-6 col-12-xsmall">
-                            <input type="text" name="cp" id="cp" value="" placeholder="Code Postal" required
-                            onchange="verifCp()">
+                            <input type="text" name="cp" id="cp" value="" placeholder="Code Postal (A1A 1A1)" required
+                            oninput="verifCp()">
                             <p class="erreur" id="erreur-cp">Veillez entrer un code postal canadien valide.</p>
                         </div>
                         <div class="col-12">
                             <ul class="actions">
                                 <li><input type="submit" value="Envoyer" id="bouton" class="primary"/></li>
-                                <li><input type="reset" value="Réinitialiser"/></li>
+                                <li><input type="reset" value="Réinitialiser" onclick="refresh()"/></li>
                             </ul>
                         </div>
                     </div>

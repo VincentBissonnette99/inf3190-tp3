@@ -56,7 +56,7 @@ function verifAge() {
   }
 
   function verifDescription() {
-    let description = document.getElementById("description").value;
+    let description = document.getElementById("descritpion").value;
     let erreur = document.getElementById("erreur-description");
     let bouton = document.getElementById("bouton");
   
