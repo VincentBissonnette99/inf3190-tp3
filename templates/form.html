@@ -44,46 +44,46 @@
                 <form method="post" action="{{ url_for('ajout_animal') }}">
                     <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
-                            <input type="text" name="nom" id="nom" value="" placeholder="Nom" required onchange="verifNom()">
+                            <input type="text" name="nom" id="nom" value="" placeholder="Nom" required oninput="verifNom()">
                             <p class="erreur" id="erreur-nom">Veillez entrer un nom valide entre 3 et 20 caractères.</p>
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <input type="text" name="espece" id="espece" value="" placeholder="Espèce" required
-                                   onchange="verifEspece()">
+                            oninput="verifEspece()">
                             <p class="erreur" id="erreur-espece">Veillez entrer une espèce valide.</p>
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <input type="text" name="race" id="race" value="" placeholder="Race" required
-                                   onchange="verifRace()">
+                            oninput="verifRace()">
                             <p class="erreur" id="erreur-race">Veillez entrer une race valide.</p>
                         </div>
                         <div class="col-6 col-12-xsmall">
-                            <input type="text" name="age" id="age" value="" placeholder="Âge" required onchange="verifAge()">
+                            <input type="text" name="age" id="age" value="" placeholder="Âge" required oninput="verifAge()">
                             <p class="erreur" id="erreur-age">Veillez entrer un âge entre 0 et 30 ans.</p>
                         </div>
                         <div class="col-12">
                             <textarea name="description" id="descritpion" placeholder="Description de l'animal" rows="6"
-                                      required onchange="verifDescription()"></textarea>
+                            required oninput="verifDescription()"></textarea>
                             <p class="erreur" id="erreur-description">Veillez entrer une description valide.</p>
                         </div>
                         <div class="col-12">
                             <input type="email" name="courriel" id="courriel" value="" placeholder="Adresse courriel"
-                                   required>
+                            required>
                             <p class="erreur" id="erreur-courriel">Veillez entrer une adresse courriel valide.</p>
                         </div>
                         <div class="col-12">
                             <input type="text" name="adresse" id="adresse" value="" placeholder="Adresse civique"
-                                   required onchange="verifAdresse()">
+                            required oninput="verifAdresse()">
                             <p class="erreur" id="erreur-adresse">Veillez entrer une adresse valide.</p>
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <input type="text" name="ville" id="ville" value="" placeholder="Ville" required
-                                   onchange="verifVille()">
+                            onchange="verifVille()">
                             <p class="erreur" id="erreur-ville">Veillez entrer un nom de ville valide.</p>
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <input type="text" name="cp" id="cp" value="" placeholder="Code Postal" required
-                                   onchange="verifCp()">
+                            onchange="verifCp()">
                             <p class="erreur" id="erreur-cp">Veillez entrer un code postal canadien valide.</p>
                         </div>
                         <div class="col-12">
