@@ -68,43 +68,7 @@
     </div>
 
     <!-- Sidebar -->
-    <div id="sidebar">
-        <div class="inner">
-
-            <!-- Search -->
-            <section id="search" class="alt">
-                <form method="post" action="{{ url_for('recherche') }}">
-                    <input type="text" name="query" id="query" placeholder="Recherche"/>
-                </form>
-            </section>
-
-            <!-- Menu -->
-            <nav id="menu">
-                <header class="major">
-                    <h2>Menu</h2>
-                </header>
-                <ul>
-                    <li><a href="{{ url_for('index') }}">Accueil</a></li>
-                    <li><a href="{{ url_for('form') }}">Mise en adoption</a></li>
-                </ul>
-            </nav>
-
-            <!-- Section -->
-            <section>
-                <header class="major">
-                    <h2>Nous joindre</h2>
-                </header>
-                <ul class="contact">
-                    <li class="icon solid fa-envelope">information@adoption.ca</li>
-                    <li class="icon solid fa-phone">(514) 555-6284</li>
-                    <li class="icon solid fa-home">1234 Rue Saint-Donat<br/>
-                        Montréal, QC H1L 5J6
-                    </li>
-                </ul>
-            </section>
-
-        </div>
-    </div>
+    {% include 'sidebar.html' %}
 
 </div>
 
