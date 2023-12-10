@@ -31,25 +31,29 @@
             <section id="banner">
                 <div class="content">
                     <form method="post" action="{{ url_for('recherche') }}">
-                        <input type="text" name="query" id="query" placeholder="Recherche"/>
+                        <div class="row gtr-uniform">
+							<div class="col-12 col-12-xsmall">
+								<input type="text" name="query" id="query" placeholder="Recherche"/>
+							</div>
+						</div>
                     </form>
                 </div>
-
-                <!-- Éléments de recherche -->
-
-                <div class="content">
-                    {% for animal in found_animals %}
-                    <article>
-                        <h3>{{ animal.nom }}</h3>
-                        <h5>{{ animal.espece }}</h5>
-                        <p>{{ animal.description }}</p>
-                        <a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-                            En savoir plus
-                        </a>
-                    </article>
-                    {% endfor %}
-                </div>
             </section>
+
+			<!-- Éléments de recherche -->
+
+			<div class="content">
+				{% for animal in found_animals %}
+				<article class="recherche">
+					<h3>{{ animal.nom }}</h3>
+					<h5>{{ animal.espece }}</h5>
+					<p>{{ animal.description }}</p>
+					<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
+						En savoir plus
+					</a>
+				</article>
+				{% endfor %}
+			</div>
 
         </div>
     </div>
