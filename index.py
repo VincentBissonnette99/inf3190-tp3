@@ -73,12 +73,17 @@ def ajout_animal():
     else:
         return redirect(url_for('form'))
 
-#TODO
 @app.route('/recherche', methods=['GET', 'POST'])
 def recherche():
     if request.method == 'POST':
-        return render_template('result.html')
-    return render_template('recherche.html')
+        search_query = request.form['query']
+        db = get_db()
+        animaux = db.get_animaux()
+        found_animals = search_animal(search_query, animaux)
+        return render_template('recherche.html', found_animals=found_animals)
+    else:
+        return render_template('recherche.html')
+
 
 
 def validation_form(nom, espece, race, age, description, courriel, adresse, ville, cp):
@@ -102,3 +107,19 @@ def validation_form(nom, espece, race, age, description, courriel, adresse, vill
     cp_regex = r'[A-Z][0-9][A-Z] [0-9][A-Z][0-9]'
     if not re.fullmatch(cp_regex, cp):
         return redirect(url_for('form'))
+
+def search_animal(search_query, animaux):
+    search_query = search_query.lower()
+    found_animals = []
+    for animal in animaux:
+        if (search_query in animal["nom"].lower() or
+            search_query in animal["espece"].lower() or
+            search_query in animal["race"].lower() or
+            search_query in str(animal["age"]).lower() or
+            search_query in animal["description"].lower() or
+            search_query in animal["courriel"].lower() or
+            search_query in animal["adresse"].lower() or
+            search_query in animal["ville"].lower() or
+            search_query in animal["cp"].lower()):
+            found_animals.append(animal)
+    return found_animals

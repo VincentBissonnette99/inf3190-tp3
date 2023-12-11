@@ -5,182 +5,66 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Recherche</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<head>
+    <title>Recherche</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}">
-		<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-	</head>
-	<body class="is-preload">
+</head>
+<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<!-- Wrapper -->
+<div id="wrapper">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
 
-							<!-- Header -->
-								<header id="header">
-									<a href="{{ url_for('index') }}" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
-								</header>
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ url_for('index') }}" class="logo"><strong>Centre d'adoption</strong> Bellerive</a>
+            </header>
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<form method="post" action="recherche.html">
-                                            <input type="text" name="query" id="query" placeholder="Recherche" />
-                                        </form>
-									</div>
-								</section>
+            <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <form method="post" action="{{ url_for('recherche') }}">
+                        <input type="text" name="query" id="query" placeholder="Recherche"/>
+                    </form>
+                </div>
 
-                            <!-- Éléments de recherche -->
-								<section id="banner">
-									<div class="content">
-										<div class="col-12" id="recherche1">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche2">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche3">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche4">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche5">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche6">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche7">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche8">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche9">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-										<div class="col-12" id="recherche10">
-											<article class="recherche">
-												<h3>{{ animal.nom }}</h3>
-												<p>{{ animal.description }}</p>
-												<a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
-													En savoir plus
-												</a>
-											</article>
-										</div>
-									</div>
-								</section>
+                <!-- Éléments de recherche -->
 
-						</div>
-					</div>
+                <div class="content">
+                    {% for animal in found_animals %}
+                    <article>
+                        <h3>{{ animal.nom }}</h3>
+                        <h5>{{ animal.espece }}</h5>
+                        <p>{{ animal.description }}</p>
+                        <a href="{{ url_for('animal', animal_id=animal.id) }}" class="button">
+                            En savoir plus
+                        </a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+        </div>
+    </div>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="{{ url_for('recherche') }}">
-										<input type="text" name="query" id="query" placeholder="Recherche" />
-									</form>
-								</section>
+    <!-- Sidebar -->
+    {% include 'sidebar.html' %}
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="{{ url_for('index') }}">Accueil</a></li>
-										<li><a href="{{ url_for('form') }}">Mise en adoption</a></li>
-									</ul>
-								</nav>
+</div>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Nous joindre</h2>
-									</header>
-									<ul class="contact">
-										<li class="icon solid fa-envelope">information@adoption.ca</li>
-										<li class="icon solid fa-phone">(514) 555-6284</li>
-										<li class="icon solid fa-home">1234 Rue Saint-Donat<br />
-										Montréal, QC H1L 5J6</li>
-									</ul>
-								</section>
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
-
-	</body>
+</body>
 </html>
